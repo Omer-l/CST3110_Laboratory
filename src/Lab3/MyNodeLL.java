@@ -1,17 +1,17 @@
-package Lab3;
+package lab3;
 
-public class Node<E> {
+public class MyNodeLL<E> {
     E element;
-    Node<E> next;
-    Node<E> previous;
+    MyNodeLL<E> next;
+    MyNodeLL<E> previous;
 
-    public Node(E element, Node<E> previous, Node<E> next) {
+    public MyNodeLL(E element, MyNodeLL<E> previous, MyNodeLL<E> next) {
         this.element = element;
         this.next = next;
         this.previous = next;
     }
 
-    public Node(E e) {
+    public MyNodeLL(E e) {
         this.element = e;
     }
 
@@ -23,19 +23,19 @@ public class Node<E> {
         this.element = element;
     }
 
-    public Node<E> getNext() {
+    public MyNodeLL<E> getNext() {
         return next;
     }
 
-    public void setNext(Node<E> next) {
+    public void setNext(MyNodeLL<E> next) {
         this.next = next;
     }
 
-    public Node<E> getPrevious() {
+    public MyNodeLL<E> getPrevious() {
         return previous;
     }
 
-    public void setPrevious(Node<E> previous) {
+    public void setPrevious(MyNodeLL<E> previous) {
         this.previous = previous;
     }
 

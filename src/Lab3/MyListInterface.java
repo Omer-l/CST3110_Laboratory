@@ -1,4 +1,4 @@
-package Lab3;
+package lab3;
 
 public interface MyListInterface<E> {
 
