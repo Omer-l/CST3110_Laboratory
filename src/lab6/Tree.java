@@ -24,7 +24,7 @@ public class Tree<E extends Comparable<E>> {
     }
 
     /**
-     * traverses the tree until node to add child to is found.
+     * Until the node to add the child is found, recursively traverses the tree.
      * @param currentNode       the node the recursion is currently at
      * @param elementToAdd      the element to add to the tree
      */
@@ -35,7 +35,7 @@ public class Tree<E extends Comparable<E>> {
 
         if(currentNode.getLeftNode() != null) {
             MyTreeNode<E> nextNode = currentNode.getLeftNode();
-            if(left) //then traverse left if recursion left
+            if(left) //then traverse left in the next recursion
                 add(nextNode, elementToAdd);
         } else if(currentNode.getRightNode() != null) {
             MyTreeNode<E> nextNode = currentNode.getRightNode();
