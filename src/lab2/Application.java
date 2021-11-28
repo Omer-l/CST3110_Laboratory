@@ -13,8 +13,8 @@ public class Application {
         };
 
         Hourglass hourglass = new Hourglass(matrix);
+        getAndPrintResults(hourglass);
 
-        hourglass.calculateMaximumHourglass();
     }
 
     //Prints the 2D array representing a matrix.
@@ -25,5 +25,18 @@ public class Application {
 
             System.out.println();
         }
+    }
+
+    //callback the hourglass algorithm and output the results.
+    public static void getAndPrintResults(Hourglass hourglass) {
+        int maximumHourGlass = hourglass.calculateMaximumHourGlass();
+        int rowOfHourGlass = hourglass.getIndexOfMaximumHourGlass()[0]+1;
+        int columnOfHourGlass = hourglass.getIndexOfMaximumHourGlass()[1]+1;
+
+        Application.printMatrix(hourglass.getMATRIX());
+
+        System.out.println("Maximum hourglass has a sum of: " + maximumHourGlass +
+                "\nCentre of hourglass at: row " + rowOfHourGlass + " column: " + columnOfHourGlass);
+
     }
 }
