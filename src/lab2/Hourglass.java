@@ -10,8 +10,9 @@ public class Hourglass {
         this.indexOfMaximumHourGlass = new int[2];
     }
 
-    public void calculateAndPrintMaximumHourglass() {
-        int maximumHourGlass = hourGlass(matrix);
+    //callback the hourglass algorithm and output the results.
+    public void getAndPrintResults() {
+        int maximumHourGlass = calculateMaximumHourGlass(matrix);
         int rowOfHourGlass = indexOfMaximumHourGlass[0];
         int columnOfHourGlass = indexOfMaximumHourGlass[1];
 
@@ -19,6 +20,7 @@ public class Hourglass {
 
         System.out.println("Maximum hourglass has a sum of: " + maximumHourGlass +
                 "\nCentre of hourglass at: row " + rowOfHourGlass + " column: " + columnOfHourGlass);
+
     }
 
     /**
@@ -26,7 +28,7 @@ public class Hourglass {
      * @param matrix    an nxn matrix that be evaluated for the maximum hourglass sum.
      * @return          hourglass with the highest sum
      */
-    public int hourGlass(int[][] matrix) {
+    public int calculateMaximumHourGlass(int[][] matrix) {
         int maximumHourGlassSum = getHourGlassSum(matrix, 1, 1);
 
         for (int rowIterator = 1; rowIterator < matrix.length - 1; rowIterator++)  //loop from 2nd row to 2nd to last row.
@@ -65,5 +67,13 @@ public class Hourglass {
         tmpSum += matrix[row + 1][column + 1]; //bottom of hour glass
 
         return tmpSum;
+    }
+
+    public int[] getIndexOfMaximumHourGlass() {
+        return indexOfMaximumHourGlass;
+    }
+
+    public int[][] getMatrix() {
+        return matrix;
     }
 }

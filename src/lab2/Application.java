@@ -14,7 +14,7 @@ public class Application {
 
         Hourglass hourglass = new Hourglass(matrix);
 
-        hourglass.calculateAndPrintMaximumHourglass();
+        hourglass.calculateMaximumHourglass();
     }
 
     //Prints the 2D array representing a matrix.
