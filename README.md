@@ -15,7 +15,7 @@ _To view more details, please click the '✅' for more information._
 | Laboratory Week        | Exercise         | Link to repository |
 | ---------------------- |:------------: | -------------------------------: |
 | 1           | Program for Array Rotation | [✅](./src/lab1)              |
-| 2           | Maximum Sum of Hour Glass In Matrix      |        [✅](./src/lab2)          |
+| 2           | Maximum Sum of an Hourglass in a Matrix      |        [✅](./src/lab2)          |
 | 3           | Linked-List      |         [✅](./src/lab3)         |
 | 4           | Check Whether a List is Palindrome |         [✅](./src/lab4)     |
 | 5           |    Circular Queue   |           [✅](./src/lab5)      |
