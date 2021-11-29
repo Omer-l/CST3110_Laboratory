@@ -6,62 +6,70 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MyLinkedListTest {
 
     @Test
+    public void testEmpty() {
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+
+        boolean actual = testList.empty();
+        assertTrue(actual);
+    }
+
+    @Test
     public void testAdd1() {
-        MyLinkedList<Integer> l = new MyLinkedList<>();
-        l.add(2);
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
 
         Integer expected = 2;
-        Integer actual = l.getFirst().getElement();
+        Integer actual = testList.getFirst().getElement();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testAdd2() {
-        MyLinkedList<Integer> l = new MyLinkedList<>();
-        l.add(2);
-        l.add(3);
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
 
         Integer[] expecteds = {2, 3};
-        Integer[] actuals = {l.getFirst().getElement(), l.getFirst().getNext().getElement()};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement()};
         assertArrayEquals(expecteds, actuals);
     }
 
     @Test
     public void testAdd3() {
-        MyLinkedList<Integer> l = new MyLinkedList<>();
-        l.add(2);
-        l.add(3);
-        l.add(4);
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
 
         Integer[] expecteds = {2, 3, 4};
-        Integer[] actuals = {l.getFirst().getElement(), l.getFirst().getNext().getElement(), l.getFirst().getNext().getNext().getElement()};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement(), testList.getFirst().getNext().getNext().getElement()};
         assertArrayEquals(expecteds, actuals);
     }
 
 //
 //    @Test
 //    public void testGetLast() {
-//        MyLinkedList<Integer> l = new MyLinkedList<>();
-//        l.add(2);
-//        l.add(5);
-//        l.add(10);
-//        assertEquals((Integer)10, l.getLast());
-//        assertEquals((Integer)2, l.getFirst());
+//        MyLinkedList<Integer> testList = new MyLinkedList<>();
+//        testList.add(2);
+//        testList.add(5);
+//        testList.add(10);
+//        assertEquals((Integer)10, testList.getLast());
+//        assertEquals((Integer)2, testList.getFirst());
 //    }
 //
 //    @Test
 //    public void testGetIndexLessThanMid() {
-//        MyLinkedList<Integer> l = new MyLinkedList<>();
-//        l.add(2);
-//        l.add(5);
-//        l.add(4);
-//        l.add(12);
-//        l.add(115421);
-//        l.add(1213);
-//        l.add(52);
-//        l.add(23);
-//        l.add(123);
-//        System.out.println(l.toString());
-//      //  assertEquals((Integer)115421, l.get(4));
+//        MyLinkedList<Integer> testList = new MyLinkedList<>();
+//        testList.add(2);
+//        testList.add(5);
+//        testList.add(4);
+//        testList.add(12);
+//        testList.add(115421);
+//        testList.add(1213);
+//        testList.add(52);
+//        testList.add(23);
+//        testList.add(123);
+//        System.out.println(testList.toString());
+//      //  assertEquals((Integer)115421, testList.get(4));
 //    }
 }
