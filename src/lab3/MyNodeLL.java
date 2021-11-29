@@ -7,8 +7,8 @@ public class MyNodeLL<E> {
 
     public MyNodeLL(E element, MyNodeLL<E> previous, MyNodeLL<E> next) {
         this.element = element;
+        this.previous = previous;
         this.next = next;
-        this.previous = next;
     }
 
     public MyNodeLL(E e) {
