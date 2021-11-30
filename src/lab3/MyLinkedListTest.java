@@ -46,6 +46,64 @@ public class MyLinkedListTest {
         assertArrayEquals(expecteds, actuals);
     }
 
+    @Test
+    public void testAdd4() {
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+
+        Integer[] expecteds = {2, 3, 4, 5};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement(), testList.getFirst().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getElement()};
+        assertArrayEquals(expecteds, actuals);
+    }
+
+    @Test
+    public void addIndex0() {
+
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        testList.add(500, 0);
+
+        Integer[] expecteds = {500, 2, 3, 4, 5};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement(), testList.getFirst().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getNext().getElement()};
+        assertArrayEquals(expecteds, actuals);
+    }
+
+    @Test
+    public void addIndexLast() {
+
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        testList.add(500, 5);
+
+        Integer[] expecteds = {2, 3, 4, 5, 500};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement(), testList.getFirst().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getNext().getElement()};
+        assertArrayEquals(expecteds, actuals);
+    }
+
+    @Test
+    public void addIndex3() {
+
+        MyLinkedList<Integer> testList = new MyLinkedList<>();
+        testList.add(2);
+        testList.add(3);
+        testList.add(4);
+        testList.add(5);
+        testList.add(500, 3);
+
+        Integer[] expecteds = {2, 3, 4, 500, 5};
+        Integer[] actuals = {testList.getFirst().getElement(), testList.getFirst().getNext().getElement(), testList.getFirst().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getElement(), testList.getFirst().getNext().getNext().getNext().getNext().getElement()};
+        assertArrayEquals(expecteds, actuals);
+    }
+
 //
 //    @Test
 //    public void testGetLast() {

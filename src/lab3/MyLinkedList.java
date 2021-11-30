@@ -16,6 +16,21 @@ public class MyLinkedList<E> {
     public boolean empty() {
         return size == 0;
     }
+
+    //adds first node in the list
+    public void addFirst(MyNodeLL<E> newNode) {
+        newNode.setNext(first);
+        first.setPrevious(newNode);
+        first = newNode;
+    }
+
+    //adds last node in the list
+    public void addLast(MyNodeLL<E> newNode) {
+        newNode.setPrevious(last);
+        last.setNext(newNode);
+        last = newNode;
+    }
+
     /**
      * Adds element as first if there are no nodes in list, otherwise
      * add to the end of the linkedlist.
@@ -25,7 +40,7 @@ public class MyLinkedList<E> {
         MyNodeLL<E> newNode = new MyNodeLL<>(element);
 
         if(empty())
-            first = newNode;
+            this.first = newNode;
         else
             add(newNode);
 
@@ -39,10 +54,39 @@ public class MyLinkedList<E> {
             last.setPrevious(first);
             first.setNext(last);
         } else {
-            MyNodeLL<E> tmp = last;
-            last = node;
-            node.setPrevious(tmp);
-            tmp.setNext(node);
+            addLast(node);
+        }
+    }
+
+    //adds to a specific index
+    public void add(E element, int index) {
+        MyNodeLL<E> newNode = new MyNodeLL<>(element);
+        if(empty())
+            this.first = newNode;
+        else
+            add(newNode, index);
+
+        size++;
+    }
+
+    public void add(MyNodeLL<E> newNode, int index) {
+        if(last == null) {
+            last = newNode;
+            last.previous = first;
+            first.next = last;
+        }else if(index <= 0) {
+            addFirst(newNode);
+        }
+        else if(index >= size)
+            addLast(newNode);
+        else { //traverse linked list.
+            MyNodeLL<E> currentNode = first;
+            for(int i = 1; i <= index; i++)
+                currentNode = currentNode.getNext();
+
+            currentNode.getPrevious().setNext(newNode);
+            currentNode.setPrevious(newNode);
+            newNode.setNext(currentNode);
         }
     }
 
