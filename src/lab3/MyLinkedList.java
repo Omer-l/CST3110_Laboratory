@@ -1,5 +1,12 @@
 package lab3;
 
+import org.jetbrains.annotations.NotNull;
+
+/**
+ * This class is a doubly linked list containing the necessary functions such as
+ * add, remove, search.
+ * @param <E> Type for the linked list (i.e., Integer, String, Rectangle2D etc.))
+ */
 public class MyLinkedList<E> {
     private int size = 0;
     private MyNodeLL<E> first;
@@ -18,14 +25,14 @@ public class MyLinkedList<E> {
     }
 
     //adds first node in the list
-    public void addFirst(MyNodeLL<E> newNode) {
+    private void addFirst(@NotNull MyNodeLL<E> newNode) {
         newNode.setNext(first);
         first.setPrevious(newNode);
         first = newNode;
     }
 
     //adds last node in the list
-    public void addLast(MyNodeLL<E> newNode) {
+    private void addLast(MyNodeLL<E> newNode) {
         newNode.setPrevious(last);
         last.setNext(newNode);
         last = newNode;
@@ -47,8 +54,8 @@ public class MyLinkedList<E> {
         size++;
     }
 
-    //adds new node to the end of the linked list.
-    public void add(MyNodeLL<E> node) {
+    //Adds new node to the end of the linked list.
+    private void add(MyNodeLL<E> node) {
         if(last == null) {
             last = node;
             last.setPrevious(first);
@@ -58,7 +65,11 @@ public class MyLinkedList<E> {
         }
     }
 
-    //adds to a specific index
+    /**
+     * Adds a new element to the linked list given an index to add new element to.
+     * @param element       is the new element to add to the list.
+     * @param index         is the place in the linked list to add the new node.
+     */
     public void add(E element, int index) {
         MyNodeLL<E> newNode = new MyNodeLL<>(element);
         if(empty())
@@ -69,7 +80,8 @@ public class MyLinkedList<E> {
         size++;
     }
 
-    public void add(MyNodeLL<E> newNode, int index) {
+    //Adds to a specific index
+    private void add(MyNodeLL<E> newNode, int index) {
         if(last == null) {
             last = newNode;
             last.previous = first;
