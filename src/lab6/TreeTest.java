@@ -132,4 +132,14 @@ public class TreeTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testSearchRoot() {
+        Integer expected = 25;
+        Tree<Integer> tree = new Tree(expected);
+
+        Integer actual = tree.search(25).getElement();
+
+        assertEquals(expected, actual);
+    }
 }
