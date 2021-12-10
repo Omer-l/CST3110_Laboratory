@@ -13,10 +13,11 @@ public class Tree<E extends Comparable<E>> {
 
     /**
      * Traverses the tree until node to add child to is found.
-     * @param elementToAdd      the element to add to the tree
+     *
+     * @param elementToAdd the element to add to the tree
      */
     public void add(E elementToAdd) {
-        if(root == null)
+        if (root == null)
             this.root = new MyTreeNode<>(elementToAdd);
         else
             add(root, elementToAdd);
@@ -25,27 +26,29 @@ public class Tree<E extends Comparable<E>> {
 
     /**
      * Until the node to add the child is found, recursively traverses the tree.
-     * @param currentNode       the node the recursion is currently at
-     * @param elementToAdd      the element to add to the tree
+     *
+     * @param currentNode  the node the recursion is currently at
+     * @param elementToAdd the element to add to the tree
      */
     private void add(MyTreeNode<E> currentNode, E elementToAdd) {
         E currentElement = currentNode.getElement();
         boolean left = (currentElement.compareTo(elementToAdd) == 1 ||
                 currentElement.compareTo(elementToAdd) == 0); //<= currentNode
 
-        if(currentNode.getLeftNode() != null) {
+        if (currentNode.getLeftNode() != null) {
             MyTreeNode<E> nextNode = currentNode.getLeftNode();
-            if(left) //then traverse left in the next recursion
+            if (left) //then traverse left in the next recursion
                 add(nextNode, elementToAdd);
-        } else if(currentNode.getRightNode() != null) {
+        }
+        if (currentNode.getRightNode() != null) {
             MyTreeNode<E> nextNode = currentNode.getRightNode();
-            if(!left)
+            if (!left)
                 add(nextNode, elementToAdd);
 
         } else { //both branches are null and insert either
             MyTreeNode<E> newNode = new MyTreeNode<>(elementToAdd);
 
-            if(left)
+            if (left)
                 currentNode.setLeftNode(newNode);
             else
                 currentNode.setRightNode(newNode);
@@ -55,11 +58,12 @@ public class Tree<E extends Comparable<E>> {
 
     /**
      * Given an element, searches the tree for a node containing the element.
-     * @param element   is the element to search
-     * @return          the node containing the element.
+     *
+     * @param element is the element to search
+     * @return the node containing the element.
      */
     public MyTreeNode<E> search(E element) {
-        if(root.getElement().compareTo(element) == 0)
+        if (root.getElement().compareTo(element) == 0)
             return root;
         else
             return search(root, element);
@@ -67,11 +71,25 @@ public class Tree<E extends Comparable<E>> {
 
     /**
      * Recursively traverses the tree until node containing element is found.
-     * @param currentNode   the current leaf/branch the recursion is at.
-     * @param element       the element to look for in a node.
-     * @return              the node containing the element.
+     *
+     * @param currentNode the current leaf/branch the recursion is at.
+     * @param element     the element to look for in a node.
+     * @return the node containing the element.
      */
     private MyTreeNode<E> search(MyTreeNode<E> currentNode, E element) {
+        MyTreeNode<E> leftNode = currentNode.getLeftNode();
+        MyTreeNode<E> rightNode = currentNode.getRightNode();
+
+        if (currentNode.getElement().compareTo(element) == 0)
+            return currentNode;
+        else if (leftNode != null) { //then evaluate left node
+            if (leftNode.getElement().compareTo(element) >= 0) //then traverse left
+                return search(leftNode, element);
+        } else if (rightNode != null) {
+            if (rightNode.getElement().compareTo(element) >= 0)
+                return search(rightNode, element);
+        }
+        //else
         return null;
     }
 

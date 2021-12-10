@@ -142,4 +142,76 @@ public class TreeTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testSearchLeftOfRoot() {
+
+        Tree<Integer> tree = new Tree(25);
+
+        Integer expected = 15;
+
+        tree.add(expected);
+
+        Integer actual = tree.search(expected).getElement();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSearchRightOfRoot() {
+
+        Tree<Integer> tree = new Tree(25);
+
+        Integer expected = 35;
+
+        tree.add(expected);
+
+        Integer actual = tree.search(expected).getElement();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSearchFarthestLeft() {
+
+        Tree<Integer> tree = new Tree(25);
+
+        Integer left1Element = 24;
+        Integer left2Element = 23;
+        Integer left3Element = 21;
+        Integer left4Element = 20;
+        Integer expected = 20;
+
+        tree.add(left1Element);
+        tree.add(left2Element);
+        tree.add(left3Element);
+        tree.add(left4Element);
+        tree.add(expected);
+
+        Integer actual = tree.search(expected).getElement();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSearchFarthestRight() {
+
+        Tree<Integer> tree = new Tree(25);
+
+        Integer right1Element = 34;
+        Integer right2Element = 32;
+        Integer right3Element = 31;
+        Integer right4Element = 30;
+        Integer expected = 400;
+
+        tree.add(right1Element);
+        tree.add(right2Element);
+        tree.add(right3Element);
+        tree.add(right4Element);
+        tree.add(expected);
+
+        Integer actual = tree.search(expected).getElement();
+
+        assertEquals(expected, actual);
+    }
 }
