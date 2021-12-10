@@ -32,8 +32,7 @@ public class Tree<E extends Comparable<E>> {
      */
     private void add(MyTreeNode<E> currentNode, E elementToAdd) {
         E currentElement = currentNode.getElement();
-        boolean left = (currentElement.compareTo(elementToAdd) == 1 ||
-                currentElement.compareTo(elementToAdd) == 0); //<= currentNode
+        boolean left = (currentElement.compareTo(elementToAdd) >= 0); //<= currentNode
 
         if (currentNode.getLeftNode() != null) {
             MyTreeNode<E> nextNode = currentNode.getLeftNode();
@@ -82,11 +81,11 @@ public class Tree<E extends Comparable<E>> {
 
         if (currentNode.getElement().compareTo(element) == 0)
             return currentNode;
-        else if (leftNode != null) { //then evaluate left node
+         if (leftNode != null) { //then evaluate left node
             if (leftNode.getElement().compareTo(element) >= 0) //then traverse left
                 return search(leftNode, element);
-        } else if (rightNode != null) {
-            if (rightNode.getElement().compareTo(element) >= 0)
+        } if (rightNode != null) {
+            if (rightNode.getElement().compareTo(element) <= 0)
                 return search(rightNode, element);
         }
         //else
