@@ -26,7 +26,7 @@ _To view more details, please click the '✅' for more information._
 | 10          | -      |    -               |
 | 11          | - | -              |
 | 12          | -      |  -  |
-| 13          | -      |    - |
+| 13          | Introduction to Contact      |  [✅](./src/lab13And14) |
 | 14          | - | - |
 | 15          | -      |   - |
 | 16          | -      |    - |
